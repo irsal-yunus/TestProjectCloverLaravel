@@ -5,7 +5,7 @@ node('master') {
             checkout scm
 
             // Install dependencies, create a new .env file and generate a new key, just for testing
-            bat 'docker run --rm --volume //c/Users/ACER/git/TestProjectCloverLaravel:/app COMPOSER_MEMORY_LIMIT=-1 composer install --no-ansi'
+            bat 'docker run --rm --volume //c/Users/ACER/git/TestProjectCloverLaravel:/app composer install --no-ansi'
             bat 'cp .env.example .env'
             bat 'docker run --rm --name key-generate-container -v //c/Users/ACER/git/TestProjectCloverLaravel:/usr/src/app -w /usr/src/app php:7.2-cli php artisan key:generate'            
 
